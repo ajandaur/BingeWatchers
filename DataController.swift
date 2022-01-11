@@ -14,17 +14,15 @@ class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     
     init(inMemory: Bool = false) {
-        // load the container
         container = NSPersistentCloudKitContainer(name: "Main")
-        
+
         if inMemory {
-            // don't write this out to disk and write it to a null space
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
-        
+
         container.loadPersistentStores { storeDescription, error in
             if let error = error {
-                fatalError("Fatal errror loading store:: \(error.localizedDescription)")
+                fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
         }
     }
@@ -33,27 +31,26 @@ class DataController: ObservableObject {
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
         let viewContext = dataController.container.viewContext
-        
-        // attempt to create sample data
+
         do {
             try dataController.createSampleData()
         } catch {
             fatalError("Fatal error creating preview: \(error.localizedDescription)")
         }
-        
+
         return dataController
     }()
     
     func createSampleData() throws {
         let viewContext = container.viewContext
-        
+
         for i in 1...5 {
             let project = Project(context: viewContext)
             project.title = "Project \(i)"
             project.items = []
             project.creationDate = Date()
             project.closed = Bool.random()
-            
+
             for j in 1...10 {
                 let item = Item(context: viewContext)
                 item.title = "Item \(j)"
@@ -63,7 +60,7 @@ class DataController: ObservableObject {
                 item.priority = Int16.random(in: 1...3)
             }
         }
-        
+
         try viewContext.save()
     }
     

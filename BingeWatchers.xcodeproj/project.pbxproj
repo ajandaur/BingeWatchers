@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8757C2B2278CEB47000C54B8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8757C2B1278CEB47000C54B8 /* CloudKit.framework */; };
 		875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */; };
 		875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CB7278CB5B6002357C9 /* ContentView.swift */; };
 		875D3CBA278CB5B7002357C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 875D3CB9278CB5B7002357C9 /* Assets.xcassets */; };
 		875D3CBD278CB5B7002357C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 875D3CBC278CB5B7002357C9 /* Preview Assets.xcassets */; };
 		875D3CC5278CB615002357C9 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CC3278CB615002357C9 /* Main.xcdatamodeld */; };
 		875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CC6278CBBBA002357C9 /* DataController.swift */; };
+		8798D08A278E1072009C8F0A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D089278E1072009C8F0A /* HomeView.swift */; };
+		8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D08B278E1250009C8F0A /* ProjectsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8757C2AF278CEB36000C54B8 /* BingeWatchers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BingeWatchers.entitlements; sourceTree = "<group>"; };
+		8757C2B1278CEB47000C54B8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		875D3CB2278CB5B6002357C9 /* BingeWatchers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeWatchersApp.swift; sourceTree = "<group>"; };
 		875D3CB7278CB5B6002357C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +29,8 @@
 		875D3CC4278CB615002357C9 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		875D3CC6278CBBBA002357C9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = SOURCE_ROOT; };
 		875D3CC8278CDFA9002357C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8798D089278E1072009C8F0A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
+		8798D08B278E1250009C8F0A /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +38,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8757C2B2278CEB47000C54B8 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8757C2B0278CEB47000C54B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8757C2B1278CEB47000C54B8 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		875D3CA9278CB5B6002357C9 = {
 			isa = PBXGroup;
 			children = (
 				875D3CB4278CB5B6002357C9 /* BingeWatchers */,
 				875D3CB3278CB5B6002357C9 /* Products */,
+				8757C2B0278CEB47000C54B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,9 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				8798D089278E1072009C8F0A /* HomeView.swift */,
+				8798D08B278E1250009C8F0A /* ProjectsView.swift */,
+				8757C2AF278CEB36000C54B8 /* BingeWatchers.entitlements */,
 				875D3CC8278CDFA9002357C9 /* Info.plist */,
 				875D3CC6278CBBBA002357C9 /* DataController.swift */,
 				875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */,
@@ -145,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */,
 				875D3CC5278CB615002357C9 /* Main.xcdatamodeld in Sources */,
 				875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */,
 				875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */,
+				8798D08A278E1072009C8F0A /* HomeView.swift in Sources */,
 				875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BingeWatchers/BingeWatchers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BingeWatchers/Preview Content\"";
@@ -306,6 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BingeWatchers/BingeWatchers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BingeWatchers/Preview Content\"";
