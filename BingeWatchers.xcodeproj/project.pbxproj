@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		870FAE73278E327B0054A318 /* Item-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FAE72278E327B0054A318 /* Item-CoreDataHelpers.swift */; };
 		870FAE75278E33570054A318 /* Project-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FAE74278E33570054A318 /* Project-CoreDataHelpers.swift */; };
+		870FAE77278E43F70054A318 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FAE76278E43F70054A318 /* EditItemView.swift */; };
+		870FAE79278E4E420054A318 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FAE78278E4E420054A318 /* ItemRowView.swift */; };
 		8757C2B2278CEB47000C54B8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8757C2B1278CEB47000C54B8 /* CloudKit.framework */; };
 		875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */; };
 		875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CB7278CB5B6002357C9 /* ContentView.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		870FAE72278E327B0054A318 /* Item-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelpers.swift"; sourceTree = SOURCE_ROOT; };
 		870FAE74278E33570054A318 /* Project-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataHelpers.swift"; sourceTree = "<group>"; };
+		870FAE76278E43F70054A318 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = SOURCE_ROOT; };
+		870FAE78278E4E420054A318 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = SOURCE_ROOT; };
 		8757C2AF278CEB36000C54B8 /* BingeWatchers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BingeWatchers.entitlements; sourceTree = "<group>"; };
 		8757C2B1278CEB47000C54B8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		875D3CB2278CB5B6002357C9 /* BingeWatchers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,8 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				870FAE78278E4E420054A318 /* ItemRowView.swift */,
+				870FAE76278E43F70054A318 /* EditItemView.swift */,
 				870FAE72278E327B0054A318 /* Item-CoreDataHelpers.swift */,
 				870FAE74278E33570054A318 /* Project-CoreDataHelpers.swift */,
 				875D3CB7278CB5B6002357C9 /* ContentView.swift */,
@@ -175,10 +181,12 @@
 				875D3CC5278CB615002357C9 /* Main.xcdatamodeld in Sources */,
 				870FAE75278E33570054A318 /* Project-CoreDataHelpers.swift in Sources */,
 				875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */,
+				870FAE79278E4E420054A318 /* ItemRowView.swift in Sources */,
 				875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */,
 				8798D08A278E1072009C8F0A /* HomeView.swift in Sources */,
 				875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */,
 				870FAE73278E327B0054A318 /* Item-CoreDataHelpers.swift in Sources */,
+				870FAE77278E43F70054A318 /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

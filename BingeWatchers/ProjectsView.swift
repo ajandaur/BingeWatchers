@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectsView: View {
     let showClosedProjects: Bool
-
+    
     let projects: FetchRequest<Project>
     
     static let openTag: String? = "Open"
@@ -17,7 +17,7 @@ struct ProjectsView: View {
     
     init(showClosedProjects: Bool) {
         self.showClosedProjects = showClosedProjects
-
+        
         projects = FetchRequest<Project>(entity: Project.entity(), sortDescriptors: [
             NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)
         ], predicate: NSPredicate(format: "closed = %d", showClosedProjects))
@@ -29,7 +29,7 @@ struct ProjectsView: View {
                 ForEach(projects.wrappedValue) { project in
                     Section(header: Text(project.projectTitle)) {
                         ForEach(project.projectItems) { item in
-                            Text(item.itemTitle )
+                            ItemRowView(item: item)
                         }
                     }
                 }
@@ -42,7 +42,7 @@ struct ProjectsView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var dataController = DataController.preview
-
+    
     static var previews: some View {
         ProjectsView(showClosedProjects: false)
             .environment(\.managedObjectContext, dataController.container.viewContext)
