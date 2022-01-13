@@ -20,6 +20,7 @@
 		875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CC6278CBBBA002357C9 /* DataController.swift */; };
 		8798D08A278E1072009C8F0A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D089278E1072009C8F0A /* HomeView.swift */; };
 		8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D08B278E1250009C8F0A /* ProjectsView.swift */; };
+		87C03B7B2790202900521382 /* Binding-OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C03B7A2790202900521382 /* Binding-OnChange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		875D3CC8278CDFA9002357C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8798D089278E1072009C8F0A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = SOURCE_ROOT; };
 		8798D08B278E1250009C8F0A /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		87C03B7A2790202900521382 /* Binding-OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-OnChange.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,8 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */,
+				87C03B7A2790202900521382 /* Binding-OnChange.swift */,
 				870FAE78278E4E420054A318 /* ItemRowView.swift */,
 				870FAE76278E43F70054A318 /* EditItemView.swift */,
 				870FAE72278E327B0054A318 /* Item-CoreDataHelpers.swift */,
@@ -91,7 +95,6 @@
 				8798D08B278E1250009C8F0A /* ProjectsView.swift */,
 				8757C2AF278CEB36000C54B8 /* BingeWatchers.entitlements */,
 				875D3CC8278CDFA9002357C9 /* Info.plist */,
-				875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */,
 				875D3CC3278CB615002357C9 /* Main.xcdatamodeld */,
 				875D3CB9278CB5B7002357C9 /* Assets.xcassets */,
 				875D3CBB278CB5B7002357C9 /* Preview Content */,
@@ -183,6 +186,7 @@
 				875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */,
 				870FAE79278E4E420054A318 /* ItemRowView.swift in Sources */,
 				875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */,
+				87C03B7B2790202900521382 /* Binding-OnChange.swift in Sources */,
 				8798D08A278E1072009C8F0A /* HomeView.swift in Sources */,
 				875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */,
 				870FAE73278E327B0054A318 /* Item-CoreDataHelpers.swift in Sources */,
