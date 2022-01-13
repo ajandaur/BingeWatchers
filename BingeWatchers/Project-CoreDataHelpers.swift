@@ -20,6 +20,9 @@ extension Project {
         color ?? "Light Blue"
     }
     
+    // Swift doesn't allow for static stored properties to extension, but we can add STATIC stored properties
+    static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
+    
     var projectItems: [Item] {
         let itemArray = items?.allObjects as? [Item] ?? []
         
