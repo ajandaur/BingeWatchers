@@ -12,6 +12,7 @@
 		870FAE77278E43F70054A318 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FAE76278E43F70054A318 /* EditItemView.swift */; };
 		870FAE79278E4E420054A318 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FAE78278E4E420054A318 /* ItemRowView.swift */; };
 		874CF24F27989C7D0088ECD1 /* SequenceSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874CF24E27989C7D0088ECD1 /* SequenceSorting.swift */; };
+		8753473E279C9A0500D2E12C /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8753473D279C9A0500D2E12C /* SelectSomethingView.swift */; };
 		8757C2B2278CEB47000C54B8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8757C2B1278CEB47000C54B8 /* CloudKit.framework */; };
 		875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CB5278CB5B6002357C9 /* BingeWatchersApp.swift */; };
 		875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CB7278CB5B6002357C9 /* ContentView.swift */; };
@@ -33,6 +34,7 @@
 		870FAE76278E43F70054A318 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = SOURCE_ROOT; };
 		870FAE78278E4E420054A318 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = SOURCE_ROOT; };
 		874CF24E27989C7D0088ECD1 /* SequenceSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceSorting.swift; sourceTree = SOURCE_ROOT; };
+		8753473D279C9A0500D2E12C /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = SOURCE_ROOT; };
 		8757C2AF278CEB36000C54B8 /* BingeWatchers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BingeWatchers.entitlements; sourceTree = "<group>"; };
 		8757C2B1278CEB47000C54B8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		875D3CB2278CB5B6002357C9 /* BingeWatchers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingeWatchers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				8753473D279C9A0500D2E12C /* SelectSomethingView.swift */,
 				874CF24E27989C7D0088ECD1 /* SequenceSorting.swift */,
 				87C9D5772790B2E9003B1A34 /* EditProjectView.swift */,
 				87C9D5752790B0BD003B1A34 /* Colors.xcassets */,
@@ -199,6 +202,7 @@
 				870FAE75278E33570054A318 /* Project-CoreDataHelpers.swift in Sources */,
 				87C9D5782790B2E9003B1A34 /* EditProjectView.swift in Sources */,
 				875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */,
+				8753473E279C9A0500D2E12C /* SelectSomethingView.swift in Sources */,
 				870FAE79278E4E420054A318 /* ItemRowView.swift in Sources */,
 				875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */,
 				87C03B7B2790202900521382 /* Binding-OnChange.swift in Sources */,
