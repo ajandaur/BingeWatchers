@@ -30,6 +30,7 @@
 		87D9C6C527A07DFA00F3B896 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D9C6C427A07DFA00F3B896 /* Awards.json */; };
 		87D9C6C727A07F8F00F3B896 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9C6C627A07F8F00F3B896 /* Award.swift */; };
 		87D9C6C927A0801E00F3B896 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9C6C827A0801E00F3B896 /* AwardsView.swift */; };
+		87E079B827A466A100C5E01C /* Color_Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E079B727A466A100C5E01C /* Color_Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		87D9C6C427A07DFA00F3B896 /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
 		87D9C6C627A07F8F00F3B896 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		87D9C6C827A0801E00F3B896 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		87E079B727A466A100C5E01C /* Color_Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Additions.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				87E079B727A466A100C5E01C /* Color_Additions.swift */,
 				87D9C6C427A07DFA00F3B896 /* Awards.json */,
 				87D9C6C627A07F8F00F3B896 /* Award.swift */,
 				87D9C6C827A0801E00F3B896 /* AwardsView.swift */,
@@ -214,6 +217,7 @@
 				87D9C6C927A0801E00F3B896 /* AwardsView.swift in Sources */,
 				875D3CC5278CB615002357C9 /* Main.xcdatamodeld in Sources */,
 				870FAE75278E33570054A318 /* Project-CoreDataHelpers.swift in Sources */,
+				87E079B827A466A100C5E01C /* Color_Additions.swift in Sources */,
 				87C9D5782790B2E9003B1A34 /* EditProjectView.swift in Sources */,
 				875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */,
 				8753473E279C9A0500D2E12C /* SelectSomethingView.swift in Sources */,
