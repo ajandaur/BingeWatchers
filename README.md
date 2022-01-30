@@ -1,17 +1,17 @@
 # Binge Watchers
 
-## IN-PROGRESS DEMO
-![Binge Watchers Demo](BingeWatchers/Demo/demo.gif)
-
-
 ## Description
-iOS app that helps you stop binging certain lifestyle habits through habit tracking and financial incentive 
+- iOS app that helps you track your good and bad habits while incorparating a financial incentive.
 
-## Functionality
-COMING SOON
+## Technologies
+- SwiftUI 
+- CoreData
 
-## Demo
-COMING SOON
+## IN-PROGRESS Demo
+![Binge Watchers Demo](/Demo/demo.gif)
 
-## Challenges
-COMING SOON
+## Currently working on..
+- Adding sign-in for Apple
+- Adding Apple Pay
+- Adding notifications and widget
+- Implmenting accessibility
