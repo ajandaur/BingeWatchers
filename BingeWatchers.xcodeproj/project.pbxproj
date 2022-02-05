@@ -22,6 +22,9 @@
 		875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CC6278CBBBA002357C9 /* DataController.swift */; };
 		8798D08A278E1072009C8F0A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D089278E1072009C8F0A /* HomeView.swift */; };
 		8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D08B278E1250009C8F0A /* ProjectsView.swift */; };
+		87A5511427ADDCD700899BAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87A5511327ADDCD700899BAB /* Localizable.strings */; };
+		87A5511627ADF14300899BAB /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5511527ADF14300899BAB /* ItemListView.swift */; };
+		87A5511827ADF1FA00899BAB /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5511727ADF1FA00899BAB /* ProjectSummaryView.swift */; };
 		87C03B7B2790202900521382 /* Binding-OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C03B7A2790202900521382 /* Binding-OnChange.swift */; };
 		87C9D5742790AC3A003B1A34 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9D5732790AC3A003B1A34 /* ProjectHeaderView.swift */; };
 		87C9D5762790B0BD003B1A34 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87C9D5752790B0BD003B1A34 /* Colors.xcassets */; };
@@ -52,6 +55,9 @@
 		875D3CC8278CDFA9002357C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8798D089278E1072009C8F0A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = BingeWatchers/View/HomeView.swift; sourceTree = SOURCE_ROOT; };
 		8798D08B278E1250009C8F0A /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		87A5511327ADDCD700899BAB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		87A5511527ADF14300899BAB /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = SOURCE_ROOT; };
+		87A5511727ADF1FA00899BAB /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = SOURCE_ROOT; };
 		87C03B7A2790202900521382 /* Binding-OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Binding-OnChange.swift"; path = "BingeWatchers/Helpers/Binding-OnChange.swift"; sourceTree = SOURCE_ROOT; };
 		87C9D5732790AC3A003B1A34 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		87C9D5752790B0BD003B1A34 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = SOURCE_ROOT; };
@@ -103,6 +109,7 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				87A5511327ADDCD700899BAB /* Localizable.strings */,
 				87B13C3427A63A24006363BD /* Helpers */,
 				87B13C3327A63A19006363BD /* ViewModel */,
 				87B13C3227A63A14006363BD /* View */,
@@ -139,6 +146,8 @@
 		87B13C3227A63A14006363BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				87A5511727ADF1FA00899BAB /* ProjectSummaryView.swift */,
+				87A5511527ADF14300899BAB /* ItemListView.swift */,
 				87C9D5772790B2E9003B1A34 /* EditProjectView.swift */,
 				870FAE76278E43F70054A318 /* EditItemView.swift */,
 				870FAE78278E4E420054A318 /* ItemRowView.swift */,
@@ -146,8 +155,8 @@
 				8753473D279C9A0500D2E12C /* SelectSomethingView.swift */,
 				87D9C6C827A0801E00F3B896 /* AwardsView.swift */,
 				875D3CB7278CB5B6002357C9 /* ContentView.swift */,
-				8798D08B278E1250009C8F0A /* ProjectsView.swift */,
 				8798D089278E1072009C8F0A /* HomeView.swift */,
+				8798D08B278E1250009C8F0A /* ProjectsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87A5511427ADDCD700899BAB /* Localizable.strings in Resources */,
 				87C9D5762790B0BD003B1A34 /* Colors.xcassets in Resources */,
 				87D9C6C527A07DFA00F3B896 /* Awards.json in Resources */,
 				875D3CBD278CB5B7002357C9 /* Preview Assets.xcassets in Resources */,
@@ -245,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */,
+				87A5511827ADF1FA00899BAB /* ProjectSummaryView.swift in Sources */,
 				87C9D5742790AC3A003B1A34 /* ProjectHeaderView.swift in Sources */,
 				87D9C6C927A0801E00F3B896 /* AwardsView.swift in Sources */,
 				875D3CC5278CB615002357C9 /* Main.xcdatamodeld in Sources */,
@@ -259,6 +270,7 @@
 				87C03B7B2790202900521382 /* Binding-OnChange.swift in Sources */,
 				874CF24F27989C7D0088ECD1 /* SequenceSorting.swift in Sources */,
 				87D9C6C3279FE72B00F3B896 /* Bundle-Decodable.swift in Sources */,
+				87A5511627ADF14300899BAB /* ItemListView.swift in Sources */,
 				8798D08A278E1072009C8F0A /* HomeView.swift in Sources */,
 				875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */,
 				870FAE73278E327B0054A318 /* Item-CoreDataHelpers.swift in Sources */,

@@ -60,6 +60,10 @@ extension Project {
         return Double(completedItems.count) / Double(originaltems.count)
     }
     
+    var label: LocalizedStringKey {
+        LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete")
+    }
+    
     static var example: Project {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
