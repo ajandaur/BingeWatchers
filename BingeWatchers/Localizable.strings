@@ -2,43 +2,7 @@
   Localizable.strings
   BingeWatchers
 
-  Created by Anmol  Jandaur on 2/4/22.
+  Created by Anmol  Jandaur on 2/24/22.
   
 */
 "Home" = "Home";
-
-// EDIT PROJECT VIEW 
-"Select a project color" = "Select a project color";
-"Pink" = "Pink";
-"Purple" = "Purple";
-"Red" = "Red";
-"Orange" = "Orange";
-"Gold" = "Gold";
-"Green" = "Green";
-"Teal" = "Teal";
-"Light Blue" = "Light Blue";
-"Dark Blue" = "Dark Blue";
-"Midnight" = "Midnight";
-"Dark Gray" = "Dark Gray";
-"Gray" = "Gray";
-
-"Select a color" = "Válassza ki a színt";
-"Pink" = "Rózsaszín";
-"Purple" = "Lila";
-"Red" = "Piros";
-"Orange" = "Narancs sárga";
-"Gold" = "Arany";
-"Green" = "Zöld";
-"Teal" = "Zöldeskék";
-"Light Blue" = "Világos kék";
-"Dark Blue" = "Sötét kék";
-"Midnight" = "Éjfél";
-"Dark Gray" = "Sötét szürke";
-"Gray" = "Szürke";
-
-// PROJECT VIEW
-"%@, completed." = "%@, completed.";
-"%@, high priority." = "%@, high priority.";
-
-"%@, completed." = "%@, elkészült.";
-"%@, high priority." = "%@, elsőbbségi.";
