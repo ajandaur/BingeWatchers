@@ -22,7 +22,20 @@ extension Project {
     }
     
     // Swift doesn't allow for static stored properties to extension, but we can add STATIC stored properties
-    static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
+    static let colors = [
+        "Pink",
+        "Purple",
+        "Red",
+        "Orange",
+        "Gold",
+        "Green",
+        "Teal",
+        "Light Blue",
+        "Dark Blue",
+        "Midnight",
+        "Dark Gray",
+        "Gray"
+    ]
     
     var projectItems: [Item] {
         items?.allObjects as? [Item] ?? []
@@ -61,6 +74,7 @@ extension Project {
     }
     
     var label: LocalizedStringKey {
+        // swiftlint: disable:next line_length
         LocalizedStringKey("\(projectTitle), \(projectItems.count) items, \(completionAmount * 100, specifier: "%g")% complete")
     }
     

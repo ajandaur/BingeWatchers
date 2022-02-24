@@ -13,7 +13,11 @@ struct HomeView: View {
     
     @EnvironmentObject var dataController: DataController
     
-    @FetchRequest(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)], predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
+    @FetchRequest(
+        entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)],
+        predicate: NSPredicate(format: "closed = false")
+    ) var projects: FetchedResults<Project>
+    
     let items: FetchRequest<Item>
     
     var projectRows: [GridItem] {
@@ -23,9 +27,11 @@ struct HomeView: View {
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         
-
+        // when a project is marked as completed its items should no longer appear in the Home view
         let completedPredicate = NSPredicate(format: "completed = false")
+        //  rather than placing all our logic into a single string, we can break it up into components then group them back to gather with logical operators such as .and
         let openPredicate = NSPredicate(format: "project.closed = false")
+        // make two predicates: this item must not be completed, and its parent project must not be closed
         let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
         
         request.predicate = compoundPredicate
