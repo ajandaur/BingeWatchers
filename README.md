@@ -14,4 +14,3 @@
 - Adding sign-in for Apple
 - Adding Apple Pay
 - Adding notifications and widget
-- Implmenting accessibility
