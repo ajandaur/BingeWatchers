@@ -25,8 +25,6 @@ extension Sequence {
         }
     }
     
-
-    
     func sorted(by sortDescriptors: [NSSortDescriptor]) -> [Element]  {
         self.sorted {
             for descriptor in sortDescriptors {
