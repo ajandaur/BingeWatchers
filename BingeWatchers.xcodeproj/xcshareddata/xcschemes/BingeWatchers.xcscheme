@@ -49,6 +49,16 @@
                ReferencedContainer = "container:BingeWatchers.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "87174A1B282B078D007316D3"
+               BuildableName = "BingeWatchersUITests.xctest"
+               BlueprintName = "BingeWatchersUITests"
+               ReferencedContainer = "container:BingeWatchers.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
