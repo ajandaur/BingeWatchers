@@ -3,14 +3,16 @@
 ## Description
 - iOS app that helps you track your good and bad habits while incorparating a financial incentive.
 
-## Technologies
+## Technologies and Features
 - SwiftUI 
-- CoreData
+- Core Data
+- MVVM Architecture
+- Basic testing using XCTest framework
 
 ## IN-PROGRESS Demo
 ![Binge Watchers Demo](/Demo/demo.gif)
 
 ## Currently working on..
-- Adding sign-in for Apple
-- Adding Apple Pay
-- Adding notifications and widget
+- [ ] Storing data in iCloud using CloudKit
+- [ ] Going cross-platform into macOS
+- [ ] Adding local notifications and widget
