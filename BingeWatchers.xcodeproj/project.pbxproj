@@ -19,6 +19,9 @@
 		87174A17282A560F007316D3 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87174A16282A560F007316D3 /* PerformanceTests.swift */; };
 		87174A1F282B078D007316D3 /* BingeWatchersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87174A1E282B078D007316D3 /* BingeWatchersUITests.swift */; };
 		87174A21282B078D007316D3 /* BingeWatchersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87174A20282B078D007316D3 /* BingeWatchersUITestsLaunchTests.swift */; };
+		87174A5F282DAB26007316D3 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87174A5E282DAB26007316D3 /* ProjectsViewModel.swift */; };
+		87174A61282DF1E7007316D3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87174A60282DF1E7007316D3 /* HomeViewModel.swift */; };
+		87174A63282ECC4D007316D3 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87174A62282ECC4C007316D3 /* ItemRowViewModel.swift */; };
 		87359D0D281C4FCC00191BE6 /* SequenceSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87359D0C281C4FCC00191BE6 /* SequenceSorting.swift */; };
 		87359D0F281C4FD200191BE6 /* Binding-OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87359D0E281C4FD200191BE6 /* Binding-OnChange.swift */; };
 		87359D11281C4FD500191BE6 /* Color_Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87359D10281C4FD500191BE6 /* Color_Additions.swift */; };
@@ -78,6 +81,9 @@
 		87174A1C282B078D007316D3 /* BingeWatchersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BingeWatchersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87174A1E282B078D007316D3 /* BingeWatchersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeWatchersUITests.swift; sourceTree = "<group>"; };
 		87174A20282B078D007316D3 /* BingeWatchersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingeWatchersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		87174A5E282DAB26007316D3 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		87174A60282DF1E7007316D3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		87174A62282ECC4C007316D3 /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		87359D0C281C4FCC00191BE6 /* SequenceSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceSorting.swift; sourceTree = "<group>"; };
 		87359D0E281C4FD200191BE6 /* Binding-OnChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding-OnChange.swift"; sourceTree = "<group>"; };
 		87359D10281C4FD500191BE6 /* Color_Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color_Additions.swift; sourceTree = "<group>"; };
@@ -152,6 +158,16 @@
 				87174A20282B078D007316D3 /* BingeWatchersUITestsLaunchTests.swift */,
 			);
 			path = BingeWatchersUITests;
+			sourceTree = "<group>";
+		};
+		87174A5D282DAB1B007316D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				87174A5E282DAB26007316D3 /* ProjectsViewModel.swift */,
+				87174A60282DF1E7007316D3 /* HomeViewModel.swift */,
+				87174A62282ECC4C007316D3 /* ItemRowViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		87359D12281C4FED00191BE6 /* Localization */ = {
@@ -256,6 +272,7 @@
 		875D3CB4278CB5B6002357C9 /* BingeWatchers */ = {
 			isa = PBXGroup;
 			children = (
+				87174A5D282DAB1B007316D3 /* ViewModels */,
 				875D3CC6278CBBBA002357C9 /* DataController.swift */,
 				87359D14281C53F700191BE6 /* Activities */,
 				87359D13281C514700191BE6 /* Configuration */,
@@ -476,6 +493,7 @@
 				87C9D5742790AC3A003B1A34 /* ProjectHeaderView.swift in Sources */,
 				87D9C6C927A0801E00F3B896 /* AwardsView.swift in Sources */,
 				875D3CC5278CB615002357C9 /* Main.xcdatamodeld in Sources */,
+				87174A61282DF1E7007316D3 /* HomeViewModel.swift in Sources */,
 				87359D11281C4FD500191BE6 /* Color_Additions.swift in Sources */,
 				870FAE75278E33570054A318 /* Project-CoreDataHelpers.swift in Sources */,
 				87C9D5782790B2E9003B1A34 /* EditProjectView.swift in Sources */,
@@ -490,7 +508,9 @@
 				8798D08A278E1072009C8F0A /* HomeView.swift in Sources */,
 				875D3CB6278CB5B6002357C9 /* BingeWatchersApp.swift in Sources */,
 				870FAE73278E327B0054A318 /* Item-CoreDataHelpers.swift in Sources */,
+				87174A63282ECC4D007316D3 /* ItemRowViewModel.swift in Sources */,
 				87359D0F281C4FD200191BE6 /* Binding-OnChange.swift in Sources */,
+				87174A5F282DAB26007316D3 /* ProjectsViewModel.swift in Sources */,
 				870FAE77278E43F70054A318 /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

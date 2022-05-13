@@ -12,23 +12,25 @@ struct ContentView: View {
     // Used @SceneStorage vs @AppStorage because when the user actively terminates your app, the data gets deleted. This means they go to the app switcher, and swipe to delete your app.
     @SceneStorage("selectedView") var selectedView: String?
     
+    @EnvironmentObject var dataController: DataController
+    
     var body: some View {
         TabView(selection: $selectedView) {
-            HomeView()
+            HomeView(dataController: dataController)
                 .tag(HomeView.tag)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
 
-            ProjectsView(showClosedProjects: false)
+            ProjectsView(dataController: dataController, showClosedProjects: false)
                 .tag(ProjectsView.openTag)
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("Open")
                 }
 
-            ProjectsView(showClosedProjects: true)
+            ProjectsView(dataController: dataController, showClosedProjects: true)
                 .tag(ProjectsView.closedTag)
                 .tabItem {
                     Image(systemName: "checkmark")
