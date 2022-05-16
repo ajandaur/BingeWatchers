@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct EditProjectView: View {
     @ObservedObject var project: Project
     
     @EnvironmentObject var dataController: DataController
     @Environment(\.presentationMode) var presentationMode
+    
+    @State private var engine = try? CHHapticEngine()
     
     @State private var title: String
     @State private var detail: String
@@ -42,15 +45,12 @@ struct EditProjectView: View {
                 LazyVGrid(columns: colorColumns) {
                     // Make each color as a rounded square on the screen
                     ForEach(Project.colors, id: \.self, content: colorButton)
-                    }
+                }
                 .padding(.vertical)
             }
             
             Section(footer: Text("Closing a project moves it from the Open to the Closed tab; deleting it will remove the project.")) {
-                Button(project.closed ? "Reopen this project" : "Close this project") {
-                    project.closed.toggle()
-                    update()
-                }
+                Button(project.closed ? "Reopen this project" : "Close this project", action: toggleClosed) 
                 
                 Button("Delete this project") {
                     showingDeleteConfirm.toggle()
@@ -82,6 +82,58 @@ struct EditProjectView: View {
     func delete() {
         dataController.delete(project)
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    func toggleClosed() {
+        project.closed.toggle()
+        
+        if project.closed {
+            do {
+                try engine?.start()
+                
+                //  Core Haptics gives us two parameters here: sharpness, to determine whether the effect is pronounced or dull, and intensity to determine the relative strength of the vibration
+                let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0)
+                let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+                
+                //  Parameter curves are created using control points, each of which set a value over time. If we set a value of 1 at the start, and a value of 0 at the end, Core Haptics will create a smooth curve for us.
+                
+                // We don’t actually say what the 1 and 0 values mean when creating the control points, and neither do we have a specific time in mind for “start” and “end” – these are provided as relative times, so if we say the relative time is 1 it means the end of the haptic no matter how long the actual effect is.
+                
+                let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
+                let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
+                
+                // use that curve to control the haptic strength
+                let parameter = CHHapticParameterCurve(
+                    parameterID: .hapticIntensityControl,
+                    controlPoints: [start, end],
+                    relativeTime: 0
+                )
+                
+                // transient (a quick tap), strong and dull
+                let event1 = CHHapticEvent(
+                    eventType: .hapticTransient,
+                    parameters: [intensity, sharpness],
+                    relativeTime: 0
+                )
+                
+                // continuous (a longer buzz), strong and dull, lasting for one second, but starting after 1/8th of a second so that it feels separate from the quick tap we just made
+                let event2 = CHHapticEvent(
+                    eventType: .hapticContinuous,
+                    parameters: [intensity, sharpness],
+                    relativeTime: 0.125,
+                    duration: 1
+                )
+                
+                let pattern = try CHHapticPattern(events: [event1, event2], parameterCurves: [parameter])
+                
+                let player = try engine?.makePlayer(with: pattern)
+                try player?.start(atTime: 0)
+                
+            } catch {
+                // haptics did not work, just fail quietly..
+            }
+            
+        }
     }
     
     func colorButton(for item: String) -> some View {
