@@ -7,7 +7,7 @@
 
 import CoreData
 import SwiftUI
-
+import CoreSpotlight
 
 ///  An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -107,8 +107,18 @@ class DataController: ObservableObject {
         }
     }
     
-    //  delete one specific project or item from our view context
-    func delete(_ object: NSManagedObject) {
+    // delete a project
+    func delete(_ object: Project) {
+        let id = object.objectID.uriRepresentation().absoluteString
+        CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [id])
+        
+        container.viewContext.delete(object)
+    }
+    // delete an item
+    func delete(_ object: Item) {
+        let id = object.objectID.uriRepresentation().absoluteString
+        CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])
+        
         container.viewContext.delete(object)
     }
     
@@ -154,4 +164,36 @@ class DataController: ObservableObject {
             return false 
         }
     }
+    
+    ///  update() method that accepts a particular item. Internally this will write that item’s information to Spotlight, then also call save() on the data controller so it updates Core Data as well.
+    func update(_ item: Item) {
+        /// 1. Creating a unique identifier for the item you want to save. If you’re updating an existing item you should use the same identifier.
+        let itemID = item.objectID.uriRepresentation().absoluteString
+        let projectID = item.project?.objectID.uriRepresentation().absoluteString
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        /// 2. Decide what attributes you want to store in Spotlight. There are hundreds of these to choose from, but you’ll probably want title and description at the very least.
+        attributeSet.title = item.title
+        attributeSet.contentDescription = item.detail
+        
+        /// 3. Wrap up the identifier and attributes in a Spotlight record, also passing in a domain identifier – a way to group certain pieces of data together.
+        let searchableItem = CSSearchableItem(
+            uniqueIdentifier: itemID,
+            domainIdentifier: projectID,
+            attributeSet: attributeSet
+        )
+        
+        /// 4. Send that off to Spotlight for indexing.
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+        
+        save()
+    }
+    
+    // convert a string back to a URL, then get the object ID for that, and finally pull out the object for that ID.
+    func item(with uniqueIdentifier: String) -> Item? {
+        // 1. Figure out which object was selected. Core Spotlight will pass us the unique identifier we saved, so we need to convert that into an Item.
+        guard let url = URL(string: uniqueIdentifier) else { return nil }
+        guard let id = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else { return nil }
+        return try? container.viewContext.existingObject(with: id) as? Item 
+    }
+    
 }

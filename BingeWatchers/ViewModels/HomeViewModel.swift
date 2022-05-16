@@ -15,8 +15,13 @@ extension HomeView {
         
         @Published var projects = [Project]()
         @Published var items = [Item]()
+        @Published var selectedItem: Item?
         
         var dataController: DataController
+        
+        func selectItem(with identifier: String) {
+            selectedItem = dataController.item(with: identifier)
+        }
         
         var upNext: ArraySlice<Item> {
             items.prefix(3)

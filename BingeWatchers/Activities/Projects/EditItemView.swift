@@ -47,10 +47,13 @@ struct EditItemView: View {
             }
         }
         .navigationTitle("Edit Item")
-        .onDisappear(perform: dataController.save)
-        // instead of using .onDisappear(), attach onChange() to Binding via extension (Binding-OnChange.swift)
+        .onDisappear(perform: save)
 
         
+    }
+    
+    func save() {
+        dataController.update(item)
     }
     
     // Synchronize @State properties with their equivalents in whatever Item object is being edited

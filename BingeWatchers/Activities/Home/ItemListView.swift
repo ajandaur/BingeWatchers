@@ -33,7 +33,7 @@ struct ItemListView: View {
                             Text(item.itemTitle)
                                 .font(.title2)
                                 .foregroundColor(.primary)
-                                .frame(width: .infinity, alignment: .leading)
+                                .frame( alignment: .leading)
                             
                             if item.itemDetail.isEmpty == false {
                                 Text(item.itemDetail)
