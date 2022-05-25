@@ -8,6 +8,8 @@
 import CoreData
 import SwiftUI
 import CoreSpotlight
+import UserNotifications
+import StoreKit
 
 ///  An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -28,13 +30,30 @@ class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
     
+    // The UserDefaults suite where we're saving user data.
+    // Using UserDefaults as a singleton like "UserDefaults.standard" causes problems if you ever want to add tests for this new code because it creates a hidden dependency
+    let defaults: UserDefaults
+    
+    // Loads and saves whether our premium unlock has been purchased.
+    var fullVersionUnlocked: Bool {
+        get {
+            defaults.bool(forKey: "fullVersionUnlocked")
+        }
+        
+        set {
+            defaults.set(newValue, forKey: "fullVersionUnlocked")
+        }
+    }
+    
     
     /// Initializes a data controller, either in memory (for temporary use such as testing and previewing),
     /// or on permanent storage (for use in regular app runs.)
     ///
     /// Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data in temporary memory or not.
-    init(inMemory: Bool = false) {
+    init(inMemory: Bool = false, defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+        
         container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
 
         // For testing and previewing purposes, we create a
@@ -97,6 +116,19 @@ class DataController: ObservableObject {
         }
 
         try viewContext.save()
+    }
+    
+    // MARK: - Requesting a review
+    // finding the first active scene (that’s the one currently receiving user input), then asking for a review prompt to appear there
+    func appLaunched() {
+        guard count(for: Project.fetchRequest()) >= 5 else { return }
+        
+        let allScenes = UIApplication.shared.connectedScenes
+        let scene = allScenes.first { $0.activationState == .foregroundActive }
+        
+        if let windowScene = scene as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: windowScene)
+        }
     }
     
     /// Saves our Core Data context iff there are changes. This silently ignores
@@ -196,4 +228,77 @@ class DataController: ObservableObject {
         return try? container.viewContext.existingObject(with: id) as? Item 
     }
     
+    // MARK: - Local Notifications
+    
+    //  method that will be called from EditProjectView to add a reminder for a project
+    func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                self.requestNotifications { success in
+                    if success {
+                        self.placeReminders(for: project, completion: completion)
+                    } else {
+                        DispatchQueue.main.async {
+                            completion(false)
+                        }
+                    }
+                }
+            case . authorized:
+                self.placeReminders(for: project, completion: completion)
+            default:
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    // method that will be called from EditProjectView to remove a reminder for a project
+    func removeReminders(for project: Project) {
+        //  every managed object has an objectID property that can be converted into a URL designed specifically for archiving
+        let center = UNUserNotificationCenter.current()
+        let id = project.objectID.uriRepresentation().absoluteString
+        center.removePendingNotificationRequests(withIdentifiers: [id])
+    }
+    
+    // This method is going to request notification authorization from iOS, asking to be able to show an alert and play a sound, then call its completion handler with whatever the system replies back with – in this case, whether the authorization was granted or not.
+    private func requestNotifications(completion: @escaping (Bool) -> Void) {
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
+            completion(granted)
+        }
+    }
+    
+    // second private method that does the work of placing a single notification for a project
+    private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {
+        //  UNMutableNotificationContent, where we describe how the notification should look to the system – what title it has, whether a picture is attached, whether it should be grouped with other similar notifications, and more
+        let content = UNMutableNotificationContent()
+        content.sound = .default
+        content.title = project.projectTitle
+        
+        if let projectDetail = project.detail {
+            content.subtitle = projectDetail
+        }
+        
+        let components = Calendar.current.dateComponents([.hour, .minute], from: project.reminderTime ?? Date())
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        
+        // wrap up the content and trigger in a single notification, giving it a unique ID
+        let id = project.objectID.uriRepresentation().absoluteString
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            DispatchQueue.main.async {
+                if error == nil {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
+        }
+    }
 }

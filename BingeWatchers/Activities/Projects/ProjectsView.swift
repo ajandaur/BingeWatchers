@@ -114,6 +114,9 @@ struct ProjectsView: View {
             // Select something when nothing else is selected
             SelectSomethingView()
         }
+        .sheet(isPresented: $viewModel.showingUnlockView) {
+            UnlockView()
+        }
     }
     
     

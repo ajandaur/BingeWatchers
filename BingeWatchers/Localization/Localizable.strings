@@ -6,3 +6,42 @@
   
 */
 "Home" = "Home";
+
+// localizations for local notifications
+"Project reminders" = "Project reminders";
+"Show reminders" = "Show reminders";
+"Oops!" = "Oops!";
+"There was a problem. Please check you have notifications enabled." = "There was a problem. Please check you have notifications enabled.";
+"Check Settings" = "Check Settings";
+"Reminder time" = "Reminder time";
+
+"Project reminders" = "Projekt emlékeztető";
+"Show reminders" = "Emlékeztetők megjelenítése";
+"Oops!" = "Hoppá!";
+"There was a problem. Please check you have notifications enabled." = "Probléma. Ellenőrizze, hogy engedélyezve vannak az értesítések.";
+"Check Settings" = "Ellenőrizze a Beállításokat";
+"Reminder time" = "Emlékeztető ideje";
+
+// Unlocking premium
+"Get Unlimited Projects" = "Get Unlimited Projects";
+"You can add three projects for free, or pay %@ to add unlimited projects." = "You can add three projects for free, or pay %@ to add unlimited projects.";
+"If you already bought the unlock on another device, press Restore Purchases." = "If you already bought the unlock on another device, press Restore Purchases.";
+"Restore Purchases" = "Restore Purchases";
+"Sorry, there was an error loading the store. Please try again later." = "Sorry, there was an error loading the store. Please try again later.";
+"Buy: %@" = "Buy: %@";
+"Loading…" = "Loading…";
+"Thank you!" = "Thank you!";
+"Thank you! Your request is pending approval, but you can carry on using the app in the meantime." = "Thank you! Your request is pending approval, but you can carry on using the app in the meantime.";
+"Dismiss" = "Dismiss";
+
+// Unlocking premium
+"Get Unlimited Projects" = "Szerezzen korlátlan projekteket";
+"You can add three projects for free, or pay %@ to add unlimited projects." = "Ingyen adhat hozzá három projektet, vagy korlátlan projekt hozzáadásához %@ fizethet.";
+"If you already bought the unlock on another device, press Restore Purchases." = "Ha már egy másik eszközön megvásárolta a feloldást, nyomja meg a Vásárlások visszaállítása gombot.";
+"Restore Purchases" = "Vásárlások visszaállítása";
+"Sorry, there was an error loading the store. Please try again later." = "Sajnos hiba történt az áruház betöltésekor. Kérjük próbálja újra később.";
+"Buy: %@" = "Vedd meg: %@";
+"Loading…" = "Betöltés…";
+"Thank you!" = "Köszönjük!";
+"Thank you! Your request is pending approval, but you can carry on using the app in the meantime." = "Köszönöm! Kérése jóváhagyásra vár, de addig is folytathatja az alkalmazás használatát.";
+"Dismiss" = "Elutasít";

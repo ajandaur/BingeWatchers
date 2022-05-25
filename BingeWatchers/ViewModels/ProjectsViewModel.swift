@@ -21,6 +21,9 @@ extension ProjectsView {
         private let projectsController: NSFetchedResultsController<Project>
         @Published var projects = [Project]()
         
+        // MARK: - IAP Properties
+        @Published var showingUnlockView = false
+        
         init(dataController: DataController, showClosedProjects: Bool) {
             self.dataController = dataController
             self.showClosedProjects = showClosedProjects
@@ -61,17 +64,25 @@ extension ProjectsView {
         }
         
         func addProject() {
+            // if the fullVersionUnlocked Boolean is true, or if we have fewer than three projects in our Core Data store
+            let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
+            
+            if canCreate {
                 let project = Project(context: dataController.container.viewContext)
                 project.closed = false
                 project.creationDate = Date()
                 dataController.save()
+            } else {
+                showingUnlockView.toggle()
+            }
+           
         }
         
         func addItem(to project: Project) {
-                let item = Item(context: dataController.container.viewContext)
-                item.project = project
-                item.creationDate = Date()
-                dataController.save()
+            let item = Item(context: dataController.container.viewContext)
+            item.project = project
+            item.creationDate = Date()
+            dataController.save()
         }
         
         
@@ -86,7 +97,7 @@ extension ProjectsView {
             
             print(project.projectItems.count)
             
-           dataController.save()
+            dataController.save()
         }
         
     }

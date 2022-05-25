@@ -21,6 +21,15 @@ struct EditProjectView: View {
     @State private var color: String
     @State private var showingDeleteConfirm = false
     
+    
+    // MARK: - Local Notifications
+    // whether the time picker is showing
+    @State private var remindMe: Bool
+    // track user's currently selected time
+    @State private var reminderTime: Date
+    // track whether alert is showing or not
+    @State private var showingNotificationsError = false
+    
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
     ]
@@ -32,6 +41,14 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
+        
+        if let projectReminderTime = project.reminderTime {
+            _reminderTime = State(wrappedValue: projectReminderTime)
+            _remindMe = State(wrappedValue: true)
+        } else {
+            _reminderTime = State(wrappedValue: Date())
+            _remindMe = State(wrappedValue: false)
+        }
     }
     
     var body: some View {
@@ -59,6 +76,22 @@ struct EditProjectView: View {
                 
             }
             
+            Section(header: Text("Project reminders")) {
+                Toggle("Show reminders", isOn: $remindMe.animation().onChange(update))
+                    .alert(isPresented: $showingNotificationsError) {
+                        Alert(
+                            title: Text("Oops!"),
+                            message: Text("There was a problem. Please check you have notifications enabled."),
+                            primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                            secondaryButton: .cancel()
+                        )
+                    }
+                
+                if remindMe {
+                    DatePicker("Reminder time", selection: $reminderTime.onChange(update), displayedComponents: .hourAndMinute)
+                }
+            }
+            
         }
         .navigationTitle("Edit Project")
         .onDisappear(perform: dataController.save)
@@ -72,11 +105,36 @@ struct EditProjectView: View {
             }
     }
     
-    // update() method that copies values from our @State propergties over to the original Core Data object
+    func showAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
+    }
+    
+    // update() method that copies values from our @State properties over to the original Core Data object
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
+        
+        // we’re going to ask the data controller to add reminders for a project, but if it fails then we need to clear the reminder time, set remindMe back to false, and show the user an error
+        if remindMe {
+            project.reminderTime = reminderTime
+            
+            dataController.addReminders(for: project) { success in
+                if success == false {
+                    project.reminderTime = nil
+                    remindMe = false
+                    
+                    showingNotificationsError = true
+                }
+            }
+        } else {
+            project.reminderTime = nil
+            dataController.removeReminders(for: project)
+        }
     }
     
     func delete() {
