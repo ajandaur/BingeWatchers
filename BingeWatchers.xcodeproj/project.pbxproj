@@ -36,6 +36,8 @@
 		875D3CC7278CBBBA002357C9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875D3CC6278CBBBA002357C9 /* DataController.swift */; };
 		8798D08A278E1072009C8F0A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D089278E1072009C8F0A /* HomeView.swift */; };
 		8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8798D08B278E1250009C8F0A /* ProjectsView.swift */; };
+		87A250D9284C6052008A8A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A250D8284C6052008A8A02 /* AppDelegate.swift */; };
+		87A250DB284C6059008A8A02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A250DA284C6059008A8A02 /* SceneDelegate.swift */; };
 		87A5511627ADF14300899BAB /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5511527ADF14300899BAB /* ItemListView.swift */; };
 		87A5511827ADF1FA00899BAB /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5511727ADF1FA00899BAB /* ProjectSummaryView.swift */; };
 		87B658CC283D5A570056CF96 /* SKProduct-LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B658CB283D5A570056CF96 /* SKProduct-LocalizedPrice.swift */; };
@@ -107,6 +109,8 @@
 		875D3CC8278CDFA9002357C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8798D089278E1072009C8F0A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = BingeWatchers/Activities/Home/HomeView.swift; sourceTree = SOURCE_ROOT; };
 		8798D08B278E1250009C8F0A /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		87A250D8284C6052008A8A02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		87A250DA284C6059008A8A02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		87A5511527ADF14300899BAB /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemListView.swift; path = BingeWatchers/Activities/Home/ItemListView.swift; sourceTree = SOURCE_ROOT; };
 		87A5511727ADF1FA00899BAB /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectSummaryView.swift; path = BingeWatchers/Activities/Home/ProjectSummaryView.swift; sourceTree = SOURCE_ROOT; };
 		87B658CB283D5A570056CF96 /* SKProduct-LocalizedPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct-LocalizedPrice.swift"; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		87359D13281C514700191BE6 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				87A250D8284C6052008A8A02 /* AppDelegate.swift */,
+				87A250DA284C6059008A8A02 /* SceneDelegate.swift */,
 				875004BB283C977A0009CC84 /* Configuration.storekit */,
 				875D3CC8278CDFA9002357C9 /* Info.plist */,
 				875D3CC3278CB615002357C9 /* Main.xcdatamodeld */,
@@ -515,6 +521,7 @@
 			files = (
 				8798D08C278E1250009C8F0A /* ProjectsView.swift in Sources */,
 				87A5511827ADF1FA00899BAB /* ProjectSummaryView.swift in Sources */,
+				87A250DB284C6059008A8A02 /* SceneDelegate.swift in Sources */,
 				87B658CE283D5AD50056CF96 /* PurchaseButton.swift in Sources */,
 				87C9D5742790AC3A003B1A34 /* ProjectHeaderView.swift in Sources */,
 				87B658D0283D5C0F0056CF96 /* ProductView.swift in Sources */,
@@ -531,6 +538,7 @@
 				870FAE79278E4E420054A318 /* ItemRowView.swift in Sources */,
 				87B658D2283D5D750056CF96 /* UnlockView.swift in Sources */,
 				875D3CB8278CB5B6002357C9 /* ContentView.swift in Sources */,
+				87A250D9284C6052008A8A02 /* AppDelegate.swift in Sources */,
 				87D9C6C3279FE72B00F3B896 /* Bundle-Decodable.swift in Sources */,
 				87A5511627ADF14300899BAB /* ItemListView.swift in Sources */,
 				87359D0D281C4FCC00191BE6 /* SequenceSorting.swift in Sources */,

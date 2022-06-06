@@ -64,18 +64,9 @@ extension ProjectsView {
         }
         
         func addProject() {
-            // if the fullVersionUnlocked Boolean is true, or if we have fewer than three projects in our Core Data store
-            let canCreate = dataController.fullVersionUnlocked || dataController.count(for: Project.fetchRequest()) < 3
-            
-            if canCreate {
-                let project = Project(context: dataController.container.viewContext)
-                project.closed = false
-                project.creationDate = Date()
-                dataController.save()
-            } else {
+            if dataController.addProject() == false {
                 showingUnlockView.toggle()
             }
-           
         }
         
         func addItem(to project: Project) {

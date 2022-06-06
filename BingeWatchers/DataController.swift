@@ -118,6 +118,21 @@ class DataController: ObservableObject {
         try viewContext.save()
     }
     
+    // marked that with the @discardableResult attribute because we won’t be using the Boolean if we’re calling this straight from a quick action
+    @discardableResult func addProject() -> Bool {
+        let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
+
+        if canCreate {
+            let project = Project(context: container.viewContext)
+            project.closed = false
+            project.creationDate = Date()
+            save()
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // MARK: - Requesting a review
     // finding the first active scene (that’s the one currently receiving user input), then asking for a review prompt to appear there
     func appLaunched() {

@@ -30,8 +30,6 @@ struct ProjectsView: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    
-    
     var projectsList: some View {
         List {
             ForEach(viewModel.projects) { project in
@@ -118,6 +116,7 @@ struct ProjectsView: View {
             UnlockView()
         }
     }
+    
     
     
 }
